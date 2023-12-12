@@ -7,12 +7,6 @@
 # define PI  3.14159265358979323846
 
 
-
-double findPi(double x){
-    return 4.00/(1.00 + x*x);
-}
-
-
 double trapezoidalIntegrate(double (*func)(double), double start, double end, int npts){
 
     double range = end - start;

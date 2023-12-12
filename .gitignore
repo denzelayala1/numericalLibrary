@@ -33,3 +33,6 @@
 
 # Tests or Debugging
 *test*
+*Tests*
+build/*
+.vscode
