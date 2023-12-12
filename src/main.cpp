@@ -1,5 +1,8 @@
 #include "integrate.hpp"
 #include <stdio.h>
+#include <math.h>
+#include <cmath>
+
 # define PI  3.14159265358979323846
 
 

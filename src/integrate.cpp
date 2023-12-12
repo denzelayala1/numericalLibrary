@@ -32,7 +32,7 @@ double trapezoidalIntegrate(double (*func)(double), double start, double end, do
 
     if(epsilon < 1e-11){
         epsilon = 1e-11;
-        printf("set epsilon to 1e-11\n");
+        printf("The function 'trapezoidalIntegrate' set epsilon to 1e-11\n");
     }
 
     while(!equal(val, prevVal, epsilon)){
@@ -40,12 +40,11 @@ double trapezoidalIntegrate(double (*func)(double), double start, double end, do
         val = trapezoidalIntegrate(func, start, end, npts);
         
         if(equal(val, prevVal, epsilon)){
-            printf("--------------------\nCOMPLETED\n    val = %.16f\nprevVal = %.16f\n%d iterations\n--------------------\n",val, prevVal, itr);
             return val;
         }
 
-        if(itr >= 20){
-            printf("--------------------\nIntegration of required too many iterations\n--------------------\n");
+        if(itr >= 2){
+            printf("--------------------\nIntegration of required too many iterations\nValue   = %.12f\nPrevVal = %.12f\n--------------------\n", val, prevVal);
             return val;
         }
 
@@ -53,15 +52,9 @@ double trapezoidalIntegrate(double (*func)(double), double start, double end, do
         npts *= 2;
     }
 
-    printf("--------------------\nval = %.10f\nprevVal = %.10f\n%d iterations\n--------------------\n",val, prevVal, itr);
     return -1.00;
 }
 
 bool equal(double a, double b, double epsilon){
-    if(epsilon < 1e-11){
-        epsilon = 1e-11;
-        printf("set epsilon to 1e-11\n");
-    }
-
     return std::abs(a - b) < epsilon;
 }
